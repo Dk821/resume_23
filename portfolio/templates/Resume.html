@@ -1,0 +1,84 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+{%  load static %}
+
+
+     
+<article class="resume active" data-page="resume">
+
+  <header>
+    <h2 class="h2 article-title">Resume</h2>
+  </header>
+
+  <section class="timeline">
+
+    <div class="title-wrapper">
+      <div class="icon-box">
+        <ion-icon name="book-outline"></ion-icon>
+      </div>
+
+      <h3 class="h3">Education</h3>
+    </div>
+
+    <ol class="timeline-list">
+      {% for edu in education %}
+      <li class="timeline-item">
+
+        <h4 class="h4 timeline-item-title">{{edu.title}}</h4>
+
+        <span>{{edu.duration}}</span>
+
+        <p class="timeline-text">
+          {{edu.percentage}}
+        </p>
+
+      </li>
+{% endfor %}
+   
+
+     
+
+    </ol>
+
+  </section>
+ 
+
+
+
+
+  <section class="skill">
+
+    <h3 class="h3 skills-title">My skills</h3>
+
+    <div class="skill-container">
+      {% for skill in skills %}
+              <div class="skill-set">
+                <div class="img">
+                 <img src="{{skill.icon.url}}" width="80px" alt="">
+                  <p class="skill_tittle">{{skill.name}}</p>
+                </div>
+              </div>
+{% endfor %}
+              
+
+              
+
+             
+
+
+
+              
+
+              
+
+
+              
+            </div>
+
+          </article>
+
+
+{% endblock content %}

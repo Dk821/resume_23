@@ -1,0 +1,110 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+{%  load static %}
+
+
+      
+<article class="about active" data-page="about">
+  <header>
+    <h2 class="h2 article-title">About me</h2>
+  </header>
+  
+  {% for dec in profile %}
+<section class="about-text">
+  <p>
+  <p>{{dec.about}}</p>
+  </p>
+{% endfor %}
+</section>
+
+
+<!--
+  - service
+-->
+
+<section class="service">
+  <h3 class="h3 service-title">What i'm doing</h3>
+  
+  <ul class="service-list">
+    {% for work in work %}
+
+    <li class="service-item">
+
+      <div class="service-icon-box">
+        <img src="{{work.icon.url}}
+        " alt="design icon" width="50">
+      </div>
+
+      <div class="service-content-box">
+       
+        <h4 class="h4 service-item-title">{{work.title}}</h4>
+
+        <p class="service-item-text">
+          {{work.dec}}
+        </p>
+      </div>
+
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+
+
+
+<!--
+  - testimonials modal
+-->
+
+<div class="modal-container" data-modal-container>
+
+  <div class="overlay" data-overlay></div>
+
+  <section class="testimonials-modal">
+
+    <button class="modal-close-btn" data-modal-close-btn>
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+
+
+  </section>
+
+</div> 
+
+
+<!--
+  - clients
+-->
+
+<section class="clients">
+
+  <h3 class="h3 clients-title">Certifications</h3>
+
+  <ul class="clients-list has-scrollbar">
+    {% for cer in certificate %}
+
+    <li class="clients-item">
+      <a href="https://www.credly.com/badges/6b0a0249-d5c1-4fdd-892a-a9c4fb469777" target="_blank">
+        <img src="{{cer.img.url}}" alt="client logo">
+      </a>
+    </li>
+
+  {% endfor %}
+   
+
+
+    
+
+    
+
+  </ul>
+
+</section>
+
+</article>
+
+
+{% endblock content %}
